@@ -1,10 +1,12 @@
 import { createRoot } from "react-dom/client";
+import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
     <div>
-      <h1>Adopt Me!</h1>
-      <p>Find your perfect furry, feathered, or scaly companion through adoption at Adorable</p>
+      <h2>Adopt Me!</h2>
+      <p>Find your perfect furry, feathered, or scaly buddy through adoption at Adorable!</p>
+      <SearchParams />
     </div>
   );
 };
