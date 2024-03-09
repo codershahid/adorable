@@ -4,8 +4,10 @@ import SearchParams from "./SearchParams";
 const App = () => {
   return (
     <div>
-      <h2>Adopt Me!</h2>
-      <p>Find your perfect furry, feathered, or scaly buddy through adoption at Adorable!</p>
+      <div className="heading">
+        <h2>Adopt Me!</h2>
+        <p>Find your perfect furry, feathered, or scaly buddy through adoption at Adorable!</p>
+      </div>
       <SearchParams />
     </div>
   );

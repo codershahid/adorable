@@ -10,19 +10,32 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.search-params {
-  width: 1100px;
+.heading {
+  width: 1366px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.search-params {
+  width: 1366px;
+  margin: 0 auto;
+}
+
+.petBox {
+  width: 800px;
+  margin: 4px auto;
+  padding: 1px 4px;
+  background-color: #81a69b;
 }
 
 .search-params form {
   border-radius: 6px;
   background: #faeff0;
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
-  width: 360px;
+  /* width: 360px; */
   margin: 0px 25px 0px 0px;
   padding: 35px 15px 15px 15px;
-  float: left;
+  /* float: left; */
 }
 
 .search {
@@ -175,7 +188,7 @@ header {
 }
 
 .search-params label {
-  display: block;
+  /* display: block; */
   width: 60px;
 }
 
