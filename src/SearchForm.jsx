@@ -1,31 +1,26 @@
+import { useState } from "react";
 import useBreedList from "./useBreedList";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
-const SearchForm = ({
-  location,
-  setLocation,
-  animal,
-  setAnimal,
-  breed,
-  setBreed,
-  doRequestPets,
-}) => {
+const SearchForm = ({ doSetRequestParams }) => {
+  const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        doRequestPets();
+        const fromData = new FormData(event.target);
+        const obj = {
+          animal: animal ?? "",
+          breed: fromData.get("breed") ?? "",
+          location: fromData.get("location") ?? "",
+        };
+        doSetRequestParams(obj);
       }}
     >
       <label htmlFor="location">
         <p>Location</p>
-        <input
-          id="location"
-          value={location}
-          placeholder="Location"
-          onChange={(e) => setLocation(e.target.value)}
-        />
+        <input name="location" id="location" placeholder="Location" />
       </label>
       <label htmlFor="animal">
         <p>Animal</p>
@@ -34,7 +29,6 @@ const SearchForm = ({
           value={animal}
           onChange={(e) => {
             setAnimal(e.target.value);
-            setBreed("");
           }}
         >
           <option>none</option>
@@ -47,15 +41,8 @@ const SearchForm = ({
       </label>
       <label htmlFor="breed">
         <p>Breed</p>
-        <select
-          id="breed"
-          value={breed}
-          disabled={breeds.length === 0}
-          onChange={(e) => {
-            setBreed(e.target.value);
-          }}
-        >
-          <option>none</option>
+        <select id="breed" name="breed" disabled={breeds.length === 0}>
+          <option value={""}>Select</option>
           {breeds.map((breed) => (
             <option key={breed} value={breed}>
               {breed}
