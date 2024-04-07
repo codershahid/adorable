@@ -10,42 +10,19 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.heading {
-  max-width: 1366px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .search-params {
-  max-width: 1366px;
+  width: 1100px;
   margin: 0 auto;
-}
-
-.petBox {
-  max-width: 800px;
-  margin: 4px auto;
-  padding: 1px 4px;
-  background-color: #81a69b;
 }
 
 .search-params form {
-  padding: 15px;
   border-radius: 6px;
   background: #faeff0;
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
-}
-
-@media only screen and (min-width: 1129px) {
-  .search-params form {
-    max-width: 1366px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-.search-params form label {
-  flex: 1;
+  width: 360px;
+  margin: 0px 25px 0px 0px;
+  padding: 35px 15px 15px 15px;
+  float: left;
 }
 
 .search {
@@ -54,7 +31,8 @@ body {
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
   width: 715px;
   padding: 15px;
-  margin: 25px auto;
+  float: left;
+  margin-bottom: 25px;
 }
 
 .details {
@@ -197,7 +175,7 @@ header {
 }
 
 .search-params label {
-  /* display: block; */
+  display: block;
   width: 60px;
 }
 
