@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useTransition } from "react";
 import useBreedList from "./useBreedList";
 import AdoptedPetContext from "./AdoptedPetContext";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -7,6 +7,7 @@ const SearchForm = ({ doSetRequestParams }) => {
   const [animal, setAnimal] = useState("");
   const [breeds] = useBreedList(animal);
   const [adoptedPet] = useContext(AdoptedPetContext);
+  const [isPending, startTransition] = useTransition();
   return (
     <form
       onSubmit={(event) => {
@@ -17,7 +18,9 @@ const SearchForm = ({ doSetRequestParams }) => {
           breed: fromData.get("breed") ?? "",
           location: fromData.get("location") ?? "",
         };
-        doSetRequestParams(obj);
+        startTransition(() => {
+          doSetRequestParams(obj);
+        });
       }}
     >
       {adoptedPet ? (
@@ -57,7 +60,13 @@ const SearchForm = ({ doSetRequestParams }) => {
           ))}
         </select>
       </label>
-      <button>Submit</button>
+      {isPending ? (
+        <div className="mini loading-pane">
+          <h2 className="loader">🌀</h2>
+        </div>
+      ) : (
+        <button>Submit</button>
+      )}
     </form>
   );
 };
